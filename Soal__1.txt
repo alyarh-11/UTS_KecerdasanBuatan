@@ -1,0 +1,58 @@
+
+Kasus
+Seorang petani ingin sistem AI yang bisa membantu menentukan jenis hama tanaman berdasarkan gejala seperti:
+
+Daun menguning
+Terdapat bercak hitam
+Daun berlubang
+Tanaman layu
+
+Penyelesaian:
+A. Sistem Pakar Berbasis Aturan Logika (Menggunakan minimal 4 aturan)
+
+Aturan berbasis logika proposisional.
+1. Jika daun menguning dan tanaman layu, maka kemungkinan besar terkena serangan virus.
+2. Jika daun berlubang dan terdapat bercak hitam, maka disebabkan oleh serangan hama ulat.
+3. Jika hanya daun menguning tanpa gejala lain, maka kemungkinan adalah defisiensi nutrisi.
+4. Jika tanaman layu dan terdapat bercak hitam, maka kemungkinan penyakit jamur.
+Fakta (Fact Examples):
+Gejala yang diinput oleh petani berupa observasi kondisi tanaman.
+Sistem akan mengolah fakta-fakta ini untuk menentukan diagnosa.
+
+B. Logika Proposisional dan Pseudocode
+
+Logika Proposisional
+Simbol logika:
+𝐷𝑀​ : Daun Menguning
+𝐵𝐻 : Bercak Hitam
+𝐷𝐵 : Daun Berlubang
+T L : Tanaman Layu
+SV  : Serangan Virus
+SU  : Serangan Ulat
+DN  : Defisiensi Nutrisi
+PJ  : Penyakit Jamur
+
+Bentuk logika:
+1. (𝐷𝑀 ∧ 𝑇𝐿) → 𝑆𝑉
+2. (DB ∧ BH)→SU
+3. (DM ∧ ¬BH ∧ ¬DB ∧ ¬TL)→DN
+4. (TL ∧ BH )→PJ
+
+C. Pseudocode:
+
+if daun_menguning and tanaman_layu:
+    diagnosis = "Serangan Virus"
+elif daun_berlubang and bercak_hitam:
+    diagnosis = "Serangan Ulat"
+elif daun_menguning and not bercak_hitam and not daun_berlubang and not tanaman_layu:
+    diagnosis = "Defisiensi Nutrisi"
+elif tanaman_layu and bercak_hitam:
+    diagnosis = "Penyakit Jamur"
+else:
+    diagnosis = "Gejala tidak teridentifikasi, perlu pemeriksaan lanjut."
+
+
+C. Penjelasan Informasi Alur Input Outputnya
+Dalam sistem pakar ini, pengguna memasukkan data berupa jawaban "ya" atau "tidak" (y/n) terhadap empat gejala tanaman: daun menguning, bercak hitam, daun berlubang, dan tanaman layu. Program kemudian mengonversi jawaban tersebut menjadi nilai boolean (True atau False) dan memprosesnya menggunakan aturan logika yang sudah ditentukan. 
+Berdasarkan kombinasi gejala yang terdeteksi, sistem melakukan inferensi untuk menentukan kemungkinan penyakit yang menyerang tanaman. Setelah aturan yang sesuai ditemukan, hasil diagnosis ditampilkan sebagai output dalam bentuk teks,  "Serangan Virus" . 
+​
